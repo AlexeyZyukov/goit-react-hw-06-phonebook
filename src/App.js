@@ -16,7 +16,7 @@ export default function App() {
   ]);
   const [toFilter, setToFilter] = useState('');
 
-  const addContact = ({ name, number }) => {
+  const addContact = ({ name, number, id }) => {
     if (contacts.some(contact => contact.name.includes(name))) {
       alert(`${name} is already in contacts!`);
     } else {
@@ -25,7 +25,7 @@ export default function App() {
         {
           name,
           number,
-          id: uuidv4(),
+          id,
         },
       ]);
     }

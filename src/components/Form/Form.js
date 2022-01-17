@@ -30,18 +30,19 @@ export default function Form({ onFormSubmit }) {
     onFormSubmit({
       name,
       number,
+      id: uuidv4(),
     });
     reset();
   }
 
-  const contactId = uuidv4();
+  // const contactId = uuidv4();
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <label className={styles.formLabel}>
         <p className={styles.inputName}>Name </p>
         <input
           className={styles.formInput}
-          id={contactId}
+          // id={contactId}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -55,7 +56,7 @@ export default function Form({ onFormSubmit }) {
         <p className={styles.inputName}> Number</p>
         <input
           className={styles.formInput}
-          id={contactId}
+          // id={contactId}
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
