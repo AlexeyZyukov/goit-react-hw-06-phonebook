@@ -20,7 +20,14 @@ export default function App() {
     if (contacts.some(contact => contact.name.includes(name))) {
       alert(`${name} is already in contacts!`);
     } else {
-      setContacts(prevState => [...prevState, { name, number, id: uuidv4() }]);
+      setContacts(prevState => [
+        ...prevState,
+        {
+          name,
+          number,
+          id: uuidv4(),
+        },
+      ]);
     }
   };
 

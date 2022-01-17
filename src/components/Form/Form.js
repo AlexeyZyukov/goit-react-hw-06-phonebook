@@ -11,7 +11,6 @@ export default function Form({ onFormSubmit }) {
     switch (name) {
       case 'name':
         setName(value);
-        //setArray(prevArray => [...prev.Array, {newObj}])
         break;
       case 'number':
         setNumber(value);
@@ -28,7 +27,10 @@ export default function Form({ onFormSubmit }) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    onFormSubmit({ name, number });
+    onFormSubmit({
+      name,
+      number,
+    });
     reset();
   }
 
