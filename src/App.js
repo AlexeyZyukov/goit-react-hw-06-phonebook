@@ -5,7 +5,7 @@ import Filter from './components/Filter/Filter';
 import Contacts from './components/Contacts/Contacts';
 import useLocalStorage from './components/hooks/useLocalStorage';
 import styles from './components/styles.module.css';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 
 export default function App() {
   const [contacts, setContacts] = useLocalStorage('contacts', [
