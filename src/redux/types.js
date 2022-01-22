@@ -4,4 +4,4 @@ const FILTER = 'contacts/filter';
 
 const CONTACT_ID = 'contacts/contactId';
 
-export default { ADD, DELETE, FILTER, CONTACT_ID };
+export { ADD, DELETE, FILTER, CONTACT_ID };
