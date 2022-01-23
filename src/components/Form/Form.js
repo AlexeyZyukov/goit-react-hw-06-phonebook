@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import contactsActions from '../../redux/contacts-actions';
 import styles from './form.module.css';
 
-export default function Form({ onFormSubmit }) {
+function Form({ onSubmit }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -27,7 +29,7 @@ export default function Form({ onFormSubmit }) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    onFormSubmit({
+    onSubmit({
       name,
       number,
       id: uuidv4(),
@@ -72,3 +74,10 @@ export default function Form({ onFormSubmit }) {
     </form>
   );
 }
+
+const mapDispatchToProps = dispatch => ({
+  onSubmit: (name, number) =>
+    dispatch(contactsActions.addContact(name, number)),
+});
+
+export default connect(null, mapDispatchToProps)(Form);
