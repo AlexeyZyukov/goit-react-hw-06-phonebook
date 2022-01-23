@@ -7,7 +7,7 @@
 
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
-import { addContact, deleteContact, filterContacts } from './contacts-actions';
+import contactsAction from './contacts-actions';
 
 const contactsReducer = createReducer(
   [
@@ -17,14 +17,14 @@ const contactsReducer = createReducer(
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ],
   {
-    [addContact]: (state, action) => [...state, action.payload],
-    [deleteContact]: (state, action) =>
+    [contactsAction.addContact]: (state, action) => [...state, action.payload],
+    [contactsAction.deleteContact]: (state, action) =>
       state.filter(contact => contact.id !== action.payload),
   },
 );
 
 const filterReducer = createReducer('', {
-  [filterContacts]: (_, action) => action.payload,
+  [contactsAction.filterContacts]: (_, action) => action.payload,
 });
 
 export default combineReducers({

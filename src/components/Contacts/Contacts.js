@@ -1,6 +1,13 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { filterContacts } from '../../redux/contacts-selectors';
+import contactsAction from '../../redux/contacts-actions';
 import styles from './contacts.module.css';
 
-export default function Contacts({ onFilter, onDelete }) {
+export default function Contacts() {
+  const onFilter = useSelector(filterContacts);
+  const dispatch = useDispatch();
+  const onDelete = id => dispatch(contactsAction.deleteContact(id));
+
   return (
     <ul className={styles.contactList}>
       {onFilter.map(({ id, name, number }) => {

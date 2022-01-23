@@ -13,4 +13,4 @@ const addContact = createAction(ADD, ({ name, number }) => ({
 const deleteContact = createAction(DELETE);
 const filterContacts = createAction(FILTER);
 
-export { addContact, deleteContact, filterContacts };
+export default { addContact, deleteContact, filterContacts };
